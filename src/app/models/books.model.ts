@@ -41,7 +41,7 @@ const bookSchema = new Schema({
 }, {
     timestamps: true,});
 
-    bookSchema.methods.updateAvailability = function (this: any) {
+    bookSchema.methods.updateAvailabilityStatus = function (this: any) {
     this.available = this.copies > 0
     return this.save();
 };
