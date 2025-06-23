@@ -12,7 +12,7 @@ This system allows managing books, borrowing functionality, and provides summary
 - Validation with Mongoose
 - Filtering, sorting, and pagination
 - Aggregation to summarize borrowed data
-- Mongoose middleware, static & instance methods
+- Mongoose middleware, instance methods
 - Proper error handling
 
 ---
