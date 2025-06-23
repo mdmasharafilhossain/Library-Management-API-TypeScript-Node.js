@@ -1,4 +1,4 @@
-# Library Management System API
+# Library Management System 
 
 A Library Management System built using **Express**, **TypeScript**, and **MongoDB** (with Mongoose).  
 This system allows managing books, borrowing functionality, and provides summary reports using aggregation.
