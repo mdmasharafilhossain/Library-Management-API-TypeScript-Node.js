@@ -9,10 +9,10 @@ const borrow_controllers_1 = require("./app/controllers/borrow.controllers");
 const errorHandler_1 = __importDefault(require("./app/middlewares/errorHandler"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use("/", book_controllers_1.BooksRoute);
-app.use("/", borrow_controllers_1.BorrowRoute);
+app.use("/api", book_controllers_1.BooksRoute);
+app.use("/api", borrow_controllers_1.BorrowRoute);
 app.use(errorHandler_1.default);
-// app.get('/', (req: Request, res: Response) => {
-//     res.send('Welcome to Library Management Website');
-// });
+app.get('/', (req, res) => {
+    res.send('Welcome to Library Management Website');
+});
 exports.default = app;

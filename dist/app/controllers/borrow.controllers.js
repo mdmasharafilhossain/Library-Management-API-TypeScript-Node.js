@@ -19,7 +19,7 @@ const books_model_1 = require("../models/books.model");
 const generalResponse_1 = __importDefault(require("../../utils/generalResponse"));
 const mongoose_1 = __importDefault(require("mongoose"));
 exports.BorrowRoute = express_1.default.Router();
-exports.BorrowRoute.post("/api/borrow", (req, res, PassError) => __awaiter(void 0, void 0, void 0, function* () {
+exports.BorrowRoute.post("/borrow", (req, res, PassError) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { book, quantity, dueDate } = req.body;
         const RequestBook = yield books_model_1.Book.findById(book);
@@ -52,7 +52,7 @@ exports.BorrowRoute.post("/api/borrow", (req, res, PassError) => __awaiter(void 
         PassError(error);
     }
 }));
-exports.BorrowRoute.get("/api/borrow", (req, res, PassError) => __awaiter(void 0, void 0, void 0, function* () {
+exports.BorrowRoute.get("/borrow", (req, res, PassError) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const BorrowdBooksSummary = yield borrows_model_1.Borrow.aggregate([
             {
