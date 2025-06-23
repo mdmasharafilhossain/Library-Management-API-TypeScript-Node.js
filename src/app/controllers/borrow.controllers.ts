@@ -26,6 +26,19 @@ BorrowRoute.post("/api/borrow", async (req: Request, res: Response, PassError: N
       throw validationError;
     }
 
+    if(quantity < 0){
+       const validationError = new mongoose.Error.ValidationError();
+
+      validationError.addError('copies', new mongoose.Error.ValidatorError({
+        message: 'Copies must be a positive number',
+        path: 'copies',
+        value: quantity,
+        type: 'min'
+      }));
+
+      throw validationError;
+    }
+
     RequestBook.copies -= quantity;
     await RequestBook.updateAvailabilityStatus();
 

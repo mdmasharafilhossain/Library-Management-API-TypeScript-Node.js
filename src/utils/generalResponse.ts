@@ -1,4 +1,4 @@
-const generalResponse = (res ,statusCode, message,data) => {
+const generalResponse = (res,statusCode, message,data) => {
   res.status(statusCode).json({
     success: true,
     
