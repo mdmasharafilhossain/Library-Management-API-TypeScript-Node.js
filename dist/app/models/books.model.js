@@ -40,4 +40,8 @@ bookSchema.methods.updateAvailabilityStatus = function () {
     this.available = this.copies > 0;
     return this.save();
 };
+bookSchema.pre('save', function (next) {
+    this.available = this.copies > 0;
+    next();
+});
 exports.Book = (0, mongoose_1.model)('Book', bookSchema);

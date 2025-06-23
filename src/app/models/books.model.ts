@@ -47,4 +47,9 @@ const bookSchema = new Schema<IBook>({
     return this.save();
 };
 
+bookSchema.pre('save', function (next) {
+  this.available = this.copies > 0;
+  next();
+});
+
 export const Book = model<IBook>('Book', bookSchema);

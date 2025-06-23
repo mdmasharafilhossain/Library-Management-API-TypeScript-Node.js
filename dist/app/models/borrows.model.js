@@ -20,4 +20,7 @@ const borrowSchema = new mongoose_1.Schema({
 }, {
     timestamps: true,
 });
+borrowSchema.post('save', function (doc) {
+    console.log(`Borrow saved  BookID: ${doc.book}, Quantity: ${doc.quantity}`);
+});
 exports.Borrow = (0, mongoose_1.model)('Borrow', borrowSchema);
