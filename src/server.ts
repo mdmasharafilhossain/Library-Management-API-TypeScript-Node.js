@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import config from '../config';
+import config from './config';
 import app from './app';
 
 
