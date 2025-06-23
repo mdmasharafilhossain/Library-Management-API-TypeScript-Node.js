@@ -17,7 +17,7 @@ BorrowRoute.post("/api/borrow", async (req:Request, res:Response , PassError:Nex
 RequestBook.copies -= quantity;
 await RequestBook.updateAvailabilityStatus();
 
-const borrow = Borrow.create({book, quantity, dueDate});
+const borrow = await Borrow.create({book, quantity, dueDate});
 generalResponse(res, 200, 'Book borrowed successfully', borrow);
   } catch (error) {
     PassError(error);
