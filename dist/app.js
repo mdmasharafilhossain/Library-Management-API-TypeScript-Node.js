@@ -12,4 +12,7 @@ app.use(express_1.default.json());
 app.use("/", book_controllers_1.BooksRoute);
 app.use("/", borrow_controllers_1.BorrowRoute);
 app.use(errorHandler_1.default);
+// app.get('/', (req: Request, res: Response) => {
+//     res.send('Welcome to Library Management Website');
+// });
 exports.default = app;

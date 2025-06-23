@@ -8,7 +8,7 @@ export const BooksRoute = express.Router();
 
 
 // Create a new book
-BooksRoute.post("/api/books", async (req: Request, res: Response,PassError:NextFunction) => {
+BooksRoute.post("/books", async (req: Request, res: Response,PassError:NextFunction) => {
   try {
     const book = await Book.create(req.body); 
    generalResponse(res, 201, "Book created successfully", book);
@@ -19,7 +19,7 @@ BooksRoute.post("/api/books", async (req: Request, res: Response,PassError:NextF
 
 // Get all books
 
-BooksRoute.get("/api/books", async (req: Request, res: Response,PassError:NextFunction) => {
+BooksRoute.get("/books", async (req: Request, res: Response,PassError:NextFunction) => {
   try {
 
       const { filter, sortBy = 'createdAt', sort = 'asc', limit = '10' } = req.query;
@@ -36,7 +36,7 @@ BooksRoute.get("/api/books", async (req: Request, res: Response,PassError:NextFu
 
 
 // Get Book by ID 
-BooksRoute.get("/api/books/:id", async (req: Request, res: Response,PassError:NextFunction) => {
+BooksRoute.get("/books/:id", async (req: Request, res: Response,PassError:NextFunction) => {
   try {
     const book = await Book.findById(req.params.id);
 
@@ -48,7 +48,7 @@ BooksRoute.get("/api/books/:id", async (req: Request, res: Response,PassError:Ne
 
 // Update Book by id
 
-BooksRoute.put("/api/books/:bookId", async (req:Request , res: Response , PassError:NextFunction)=>{
+BooksRoute.put("/books/:bookId", async (req:Request , res: Response , PassError:NextFunction)=>{
   try{
    const BookID = req.params.bookId 
     const book = await Book.findByIdAndUpdate(BookID, req.body, {new: true})
@@ -61,7 +61,7 @@ generalResponse(res, 200, "Book updated successfully", book);
 
 // Delete Book by id
 
-BooksRoute.delete("/api/books/:bookId", async (req: Request, res: Response, PassError: NextFunction) => {
+BooksRoute.delete("/books/:bookId", async (req: Request, res: Response, PassError: NextFunction) => {
   try {
 
     

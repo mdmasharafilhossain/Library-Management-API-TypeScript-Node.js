@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 
 export const BorrowRoute = express.Router();
 
-BorrowRoute.post("/api/borrow", async (req: Request, res: Response, PassError: NextFunction) => {
+BorrowRoute.post("/borrow", async (req: Request, res: Response, PassError: NextFunction) => {
   try {
     const { book, quantity, dueDate } = req.body;
     const RequestBook = await Book.findById(book);
@@ -50,7 +50,7 @@ BorrowRoute.post("/api/borrow", async (req: Request, res: Response, PassError: N
   }
 });
 
-BorrowRoute.get("/api/borrow", async (req:Request, res:Response , PassError:NextFunction) => {
+BorrowRoute.get("/borrow", async (req:Request, res:Response , PassError:NextFunction) => {
   try {
    const BorrowdBooksSummary = await Borrow.aggregate([
    {
