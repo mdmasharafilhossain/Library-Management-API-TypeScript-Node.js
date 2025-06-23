@@ -1,11 +1,11 @@
-const generalResponse = (res,statusCode, message,data) => {
+import { Response } from 'express';
+
+const generalResponse = (res: Response,statusCode: number,message: string,data: any): void => {
   res.status(statusCode).json({
     success: true,
-    
     message,
-    data
+    data,
   });
-}
-
+};
 
 export default generalResponse;
