@@ -3,7 +3,7 @@ import express from 'express';
 import { Book } from "../models/books.model";
 import generalResponse from "../../utils/generalResponse";
 
-const BooksRoute = express.Router();
+export const BooksRoute = express.Router();
 
 
 

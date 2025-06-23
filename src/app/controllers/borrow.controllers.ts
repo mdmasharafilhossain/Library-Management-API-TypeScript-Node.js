@@ -4,7 +4,7 @@ import { Borrow } from '../models/borrows.model';
 import { Book } from '../models/books.model';
 import generalResponse from '../../utils/generalResponse';
 
-const BorrowRoute = express.Router();
+export const BorrowRoute = express.Router();
 
 BorrowRoute.post("/api/borrow", async (req:Request, res:Response , PassError:NextFunction) => {
   try {
