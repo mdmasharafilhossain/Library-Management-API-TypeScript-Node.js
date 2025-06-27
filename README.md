@@ -7,7 +7,7 @@ This system allows managing books, borrowing functionality, and provides summary
 
 ## Features
 
-- Add, update, delete books
+- Add, update, and delete books
 - Borrow books 
 - Validation with Mongoose
 - Filtering, sorting, and pagination
