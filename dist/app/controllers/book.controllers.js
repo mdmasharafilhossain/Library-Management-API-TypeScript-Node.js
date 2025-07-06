@@ -28,15 +28,44 @@ exports.BooksRoute.post("/books", (req, res, PassError) => __awaiter(void 0, voi
     }
 }));
 // Get all books
+// BooksRoute.get("/books", async (req: Request, res: Response,PassError:NextFunction) => {
+//   try {
+//       const { filter, sortBy = 'createdAt', sort = 'asc', limit = '10' } = req.query;
+//        const query: any = {};
+//       if (filter){
+//         query.genre = filter;
+//       } 
+//     const books = await Book.find(query).sort({ [sortBy as string]: sort === 'asc' ? 1 : -1 }).limit(Number(limit)) || [] ;
+//     generalResponse(res, 200, "Books retrieved successfully", books);
+//   } catch (error) {
+//     PassError(error);
+//   }
+// });
 exports.BooksRoute.get("/books", (req, res, PassError) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { filter, sortBy = 'createdAt', sort = 'asc', limit = '10' } = req.query;
-        const query = {};
-        if (filter) {
-            query.genre = filter;
-        }
-        const books = (yield books_model_1.Book.find(query).sort({ [sortBy]: sort === 'asc' ? 1 : -1 }).limit(Number(limit))) || [];
-        (0, generalResponse_1.default)(res, 200, "Books retrieved successfully", books);
+        // 1️⃣  কুয়েরি প্যারাম পড়া
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const sortBy = req.query.sortBy || "createdAt";
+        const sortDir = req.query.sort === "asc" ? 1 : -1;
+        const filter = req.query.filter ? { genre: req.query.filter } : {};
+        // 2️⃣  skip গণনা
+        const skip = (page - 1) * limit;
+        // 3️⃣  একই সঙ্গে list ও মোট কাউন্ট আনো
+        const [books, total] = yield Promise.all([
+            books_model_1.Book.find(filter).sort({ [sortBy]: sortDir }).skip(skip).limit(limit),
+            books_model_1.Book.countDocuments(filter)
+        ]);
+        // 4️⃣  meta সহ রেসপন্স
+        (0, generalResponse_1.default)(res, 200, "Books retrieved successfully", {
+            meta: {
+                page,
+                limit,
+                total,
+                totalPages: Math.ceil(total / limit)
+            },
+            data: books
+        });
     }
     catch (error) {
         PassError(error);
