@@ -1,4 +1,4 @@
-# Library Management System 
+# Library Management System API 
 
 A Library Management System built using **Express**, **TypeScript**, and **MongoDB** (with Mongoose).  
 This system allows managing books, borrowing functionality, and provides summary reports using aggregation.
@@ -7,7 +7,7 @@ This system allows managing books, borrowing functionality, and provides summary
 
 ## Features
 
-- Add, update, delete books
+- Add, update, and delete books
 - Borrow books 
 - Validation with Mongoose
 - Filtering, sorting, and pagination
@@ -32,7 +32,7 @@ This system allows managing books, borrowing functionality, and provides summary
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/mdmasharafilhossain/Library-Management-TypeScript-Node.js.git 
+git clone https://github.com/mdmasharafilhossain/Library-Management-API-TypeScript-Node.js.git
 cd Library-Management-TypeScript-Node
 ```
 
