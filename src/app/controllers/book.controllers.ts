@@ -18,21 +18,6 @@ BooksRoute.post("/books", async (req: Request, res: Response,PassError:NextFunct
 });
 
 // Get all books
-
-// BooksRoute.get("/books", async (req: Request, res: Response,PassError:NextFunction) => {
-//   try {
-
-//       const { filter, sortBy = 'createdAt', sort = 'asc', limit = '10' } = req.query;
-//        const query: any = {};
-//       if (filter){
-//         query.genre = filter;
-//       } 
-//     const books = await Book.find(query).sort({ [sortBy as string]: sort === 'asc' ? 1 : -1 }).limit(Number(limit)) || [] ;
-//     generalResponse(res, 200, "Books retrieved successfully", books);
-//   } catch (error) {
-//     PassError(error);
-//   }
-// });
 BooksRoute.get("/books", async (req: Request, res: Response, PassError: NextFunction) => {
   try {
    
