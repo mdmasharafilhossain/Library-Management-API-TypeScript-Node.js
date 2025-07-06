@@ -10,7 +10,7 @@ const errorHandler_1 = __importDefault(require("./app/middlewares/errorHandler")
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['http://localhost:5173', 'live-deploy-url']
+    origin: ['http://localhost:5173', 'https://library-management-sigma-nine.vercel.app/', 'https://library-management-sigma-nine.vercel.app']
 }));
 app.use(express_1.default.json());
 app.use("/api", book_controllers_1.BooksRoute);

@@ -6,7 +6,7 @@ import cors from 'cors';
 const app: Application = express();
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'live-deploy-url']
+    origin: ['http://localhost:5173', 'https://library-management-sigma-nine.vercel.app/', 'https://library-management-sigma-nine.vercel.app']
    })
 );
 
